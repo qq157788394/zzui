@@ -1,0 +1,115 @@
+@import "../../assets/_variable";
+
+@zui-cell-color-text: @--color-text-regular;
+@zui-cell-color-disabled: @--color-text-secondary;
+@zui-cell-fill: @--fill-base;
+@zui-cell-font-size: @--font-size-root;
+@zui-cell-font-size-small: @--font-size-base;
+@zui-cell-height: 56px;
+@zui-cell-height-small: 48px;
+@zui-cell-icon-color: @--color-text-placeholder;
+
+:host {
+  flex: none;
+  box-sizing: border-box;
+  color: @zui-cell-color-text;
+}
+
+.zui-cell {
+  position: relative;
+  display: flex;
+  width: 100%;
+  background-color: @zui-cell-fill;
+  padding-right: 16px;
+  padding-left: 16px;
+  box-sizing: inherit;
+
+  &.is-link {
+    &::before {
+      opacity: 0;
+      .setActive();
+    }
+  }
+
+  &.active {
+    &.is-link {
+      &::before {
+        opacity: .08;
+      }
+    }
+  }
+
+  &.zui-cell--small {
+    height: @zui-cell-height-small;
+    font-size: @zui-cell-font-size-small;
+  }
+
+  &.zui-cell--medium {
+    height: @zui-cell-height;
+    font-size: @zui-cell-font-size;
+  }
+
+  &.zui-cell--auto {
+    padding: 16px;
+    height: auto;
+    font-size: @zui-cell-font-size;
+  }
+
+  &.divider {
+    &::after {
+      .setBottomLine();
+    }
+  }
+}
+
+.zui-cell__hd {
+  position: relative;
+  flex: none;
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+  box-sizing: inherit;
+}
+
+.zui-cell__bd {
+  position: relative;
+  flex: auto;
+  display: flex;
+  align-items: center;
+  box-sizing: inherit;
+  overflow: hidden;
+}
+
+.zui-cell__ft {
+  flex: none;
+  display: flex;
+  align-items: center;
+  box-sizing: inherit;
+  margin-left: 16px;
+}
+
+.zui-cell-block {
+  display: block;
+  box-sizing: inherit;
+  width: 100%;
+}
+
+
+@import "../../assets/_zui-icon";
+
+.zui-cell-icon {
+  flex: none;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+  width: 1em;
+  color: inherit;
+  box-sizing: inherit;
+  color: @zui-cell-icon-color;
+  margin-left: 4px;
+}

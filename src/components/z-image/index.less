@@ -1,0 +1,46 @@
+@import "../../assets/_variable";
+
+@zui-image-border: @--border-width-base @--border-style-base @--border-color-extra-light;
+@zui-image-background-color: @--background-color-base;
+
+:host {
+  box-sizing: border-box;
+  flex: none;
+  font-size: 0;
+}
+
+.zui-image {
+  display: block;
+  background-color: @zui-image-background-color;
+  box-sizing: inherit;
+}
+
+.zui-image--inline {
+  display: inline-block;
+}
+
+.zui-image--border {
+  border: @zui-image-border;
+}
+
+@import "../../assets/_zui-icon";
+
+.zui-image-icon {
+  position: relative;
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 1;
+  color: @--border-color-lighter;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

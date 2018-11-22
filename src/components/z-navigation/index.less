@@ -1,0 +1,161 @@
+@import "../../assets/_variable";
+
+@zui-navigation-light-text: @--color-black;
+@zui-navigation-light-background: @--fill-base;
+
+@zui-navigation-dark-text: @--color-white;
+@zui-navigation-dark-background: @--color-primary;
+
+@import "../../assets/_zui-icon";
+
+.zui-navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  padding-top: 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  z-index: @zindex-navbar-fixed;
+  font-size: @--font-size-large;
+  box-sizing: border-box;
+
+  &::after {
+    flex: none;
+    content: '';
+    width: 105px;
+  }
+}
+
+.zui-navigation__hd {
+  position: relative;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  padding-right: 10px;
+  padding-left: 10px;
+
+  &::before {
+    .setActive();
+  }
+
+  &.active {
+    &::before {
+      opacity: .24;
+    }
+  }
+}
+
+.zui-navigation-icon {
+  flex: none;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+  width: 1em;
+  color: inherit;
+  box-sizing: inherit;
+}
+
+.zui-navigation__bd {
+  flex: auto;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+
+  &.zui-navigation__bd--no-icon {
+    padding-left: 10px;
+  }
+}
+
+@zui-tab-font-size: 15px;
+@zui-tab-font-weight: @--font-weight-blod;
+
+.zui-tab {
+  display: block;
+  width: 100%;
+}
+
+.zui-tab__bd {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.zui-tab__item {
+  position: relative;
+  flex: auto;
+  display: inline-block;
+  padding: 0 8px;
+  line-height: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+
+  &::before {
+    .setActive()
+  }
+
+  &:not(.zui-tab__item--selected) {
+    &.active {
+      &::before {
+        opacity: .24;
+      }
+    }
+  }
+}
+
+.zui-tab__title {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  word-break: keep-all;
+  font-size: @zui-tab-font-size;
+  font-weight: @zui-tab-font-weight;
+  opacity: .7;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 6px;
+    left: 0;
+    height: 2px;
+    background-color: currentColor;
+    opacity: 0;
+  }
+}
+
+.zui-tab__item--selected {
+  .zui-tab__title {
+    opacity: 1;
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.zui-tab__bd--scroll {
+  display: block;
+  white-space: nowrap;
+}
+.zui-tab__bd--scroll {
+  .zui-tab__item {
+    min-width: 80px;
+  }
+}
